@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  
+    <h1>Practica # 2 de JavaScript </h1>
+    
+    <nav>
+        <ul>
+            <li><a href="test.html"><font color="blue" face="Algerian"><h3>Test</h3></font></a></li>
+        </ul>
+    </nav>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+    <title>inf 113</title>
+</head>
+<body>
+    <link rel="stylesheet" tipe="text/css" href="estilos.css">
+    <section style="border-radius: 5px; background-color: #f2f2f2; padding: 20px; margin-right: 70%;">
+            <div>
+            <form>
+                <p><img src="1.jpg"></p>
+                  <font face="Comic Sans MS,arial">
+              <label for="ej1">Ingrese la variable a Calcular</label>
+                </font>
+              <input type="number" id="ej1m" name="ej1m" placeholder="m...">
+              <input type="number" id="ej1n" name="ej1n" placeholder="n...">
+              <button type="button" onclick="ejercicio1()">Calcular</button>
+              <p id="ejercicio1"></p>
+              <script>
+              function fact(n){
+                  var i=1
+                  var f=1
+                  while (i <= n){
+                      f=f*i
+                      i=i+1
+                  }
+                  return f
+              }
+              function ejercicio1() {
+              var n=Number;
+              var m=Number;
+              var s=Number
+              n = Number(document.getElementById("ej1n").value);
+              m = Number(document.getElementById("ej1m").value);
+              s = Number(fact((m-n)))
+              s = Number(s*fact(n))
+              s = Number(fact(m)/s)
+              document.getElementById("ejercicio1").innerHTML = "="+s;
+              }
+            </script>
+            </form>
+        </div>
+    </section>
+    <section style="border-radius: 5px; background-color: #f2f2f2; padding: 20px; margin-right: 70%;">
+        <div>
+            <form>
+              <font face="Comic Sans MS,arial">
+              <label for="ej1">Ingrese Un numero para Sumar sus Digitos</label>
+            </font>
+              <input type="number" id="ej2n" name="ej2n" placeholder="n...">
+              <button type="button" onclick="ejercicio2()">Calcular</button>
+              <p id="ejercicio2"></p>
+              <script>
+              function sd(n){
+                  var s=0
+                  while (n>0){
+                      s= (n % 10)+s
+                      n=(n/10)
+                      n=Math.trunc(n)
+                  }
+                  return s
+              }
+              function ejercicio2() {
+              var n=Number;
+              var m=Number;
+              var s=Number
+              n = Number(document.getElementById("ej2n").value);
+              s = Number(sd(n))
+              document.getElementById("ejercicio2").innerHTML = "="+s;
+              }
+            </script>
+            </form>
+        </div>
+    </section>
+    <section style="border-radius: 5px; background-color:white; padding: 20px; margin-right: 70%;">
+      <img src="primo.jpg" width="220" height="100">
+        <div>
+            <form>
+               <font face="Comic Sans MS,arial">
+              <label for="ej1">Ingrese Un numero para ver si es primo o no</label></font>
+              <input type="number" id="ej3n" name="ej3n" placeholder="n...">
+              <button type="button" onclick="ejercicio3()">Calcular</button>
+              <p id="ejercicio3"></p>
+              <script>
+              function p(n){
+                  var i=1
+                  var c=0
+                  var s=0
+                  while (i <= n){
+                      s=n%i
+                      if (s == 0){
+                          c=c+1
+                      }
+                      i=i+1
+                  }
+                  if (c==2){
+                      return true
+                  }
+                  else{
+                      return false
+                  }
+              }
+              function ejercicio3() {
+              var n=Number;
+              n = Number(document.getElementById("ej3n").value);
+              if (p(n)){
+                  x="Es Primo"
+              }
+              else{
+                  x="No Es Primo"
+              }
+              document.getElementById("ejercicio3").innerHTML = "="+x;
+              }
+            </script>
+            </form>
+        </div>
+    </section>
+    <section style="border-radius: 5px; background-color: #f2f2f2; padding: 20px; margin-right: 70%;">
+        <div>
+            <img src="formula.jpg" width="160" height="100">
+            <form>
+                <font face="Comic Sans MS,arial">
+              <label for="ej1"><p>Ingrese los numeros las raíces de una ecuación de 2do. Grado<p></p></label>  </font>
+              <input type="number" id="ej4a" name="ej4a" placeholder="a...">
+              <input type="number" id="ej4b" name="ej4b" placeholder="b...">
+              <input type="number" id="ej4c" name="ej4c" placeholder="c...">
+              <button type="button" onclick="ejercicio4()">Calcular</button>
+              <p id="ejercicio4"></p>
+              <script>
+              function ejercicio4() {
+              var a=Number,b=Number,c=Number,a1=Number,b1=Number,c1=Number,s1=Number, s2=Number;
+              a = Number(document.getElementById("ej4a").value);
+              b = Number(document.getElementById("ej4b").value);
+              c = Number(document.getElementById("ej4c").value);
+              a1=2*a
+              b1=b*(-1)
+              c1=(Math.pow(b,2))-(4*a*c)
+              s1=((b*(-1))+(Math.sqrt(c1)))/(2*a)
+              s2=((b*(-1))-(Math.sqrt(c1)))/(2*a)
+              r1="("+b1+"+√"+c1+")/"+a1
+              r2="("+b1+"-√"+c1+")/"+a1
+              if (r1.toString() == "NaN"){
+                  s1="No existe un Numero por que la raiz es negativa"
+              }
+              if (r2.toString() == "NaN"){
+                  s2="No existe un Numero por que la raiz es negativa"
+              }
+              document.getElementById("ejercicio4").innerHTML = "="+r1+"<br>"+"="+s1+"<br>"+"="+r2+"<br>"+"="+s2
+              }
+            </script>
+            </form>
+        </div>
+    </section>
+    <footer>
+ <font color="black" FACE="impact"><center><h3> © 2020 Elaborado por:Katherine Quispe Quispe </h3></center></font>
+</footer>
+</body>
+</html>
